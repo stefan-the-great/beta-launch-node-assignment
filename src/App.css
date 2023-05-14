@@ -15,3 +15,50 @@ h1 {
     font-size: 20px;
     padding-left: 32px;
 }
+
+
+/* Table Options Section */
+
+.tableOptions {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 0px 32px;
+}
+
+.selectDropdown {
+    font-family: 'Inter', sans-serif;
+    width: 214px;
+    height: 32px;
+    border-radius: 4px;
+    margin-right: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+.addPeople {
+    width: 109px;
+    height: 36px;
+    color: #ffffff;
+    background: #0052EA;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding: 6px 16px;
+    font-weight: 600;
+    /* gap: 8px; */
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    transition: all 200ms;
+}
+
+.addPeople:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+    background: #075cfa;
+    font-weight: bold;
+}
