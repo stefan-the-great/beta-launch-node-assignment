@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from "react-select"
 
-function TableOptions() {
+function TableOptions({setModal}) {
     const options = [
         {value: "All", label: "All"},
         {value: "Full Time", label: "Full Time"},
@@ -21,6 +21,7 @@ function TableOptions() {
     }
 
     const openModal = () => {
+        setModal(true);
         console.log("Modal will be opened");
         // This would open up a modal that adds people
         // ? Way to do it is to have a useState that defaults to false, and will be true when this is clicked
