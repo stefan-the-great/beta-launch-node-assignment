@@ -3,6 +3,7 @@ import Select from "react-select"
 
 function TableOptions() {
     const options = [
+        {value: "All", label: "All"},
         {value: "Full Time", label: "Full Time"},
         {value: "Part Time", label: "Part Time"},
         {value: "Contract Basis", label: "Contract Basis"},

@@ -62,3 +62,13 @@ h1 {
     background: #075cfa;
     font-weight: bold;
 }
+
+
+/* Table Section */
+
+.tableContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
