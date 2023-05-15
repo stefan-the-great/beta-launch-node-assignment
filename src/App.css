@@ -1,5 +1,6 @@
-/* .App {
-} */
+.App {
+    overflow-x: hidden;
+}
 
 .menu {
     width: 100%;
@@ -42,7 +43,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 0px 32px;
+    padding: 0px 67px;
 }
 
 .selectDropdown {
@@ -89,6 +90,30 @@ p {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+
+.buttonWrapper {
+    display: flex;
+}
+
+.rowButton {
+    cursor: pointer;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    background: none;
+}
+
+.buttonWrapper #edit {
+    color: #0052EA;
+}
+
+.buttonWrapper #delete {
+    color: #C62828;
+    ;
 }
 
 
@@ -157,6 +182,7 @@ p {
 }
 
 .form input,
+select,
 .form textarea {
     font-family: 'Inter', sans-serif;
     padding: 10px;

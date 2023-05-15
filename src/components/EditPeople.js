@@ -1,6 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function AddPeople({setModal, currIndex, baseUrl}) {
+function EditPeople({setModal, baseUrl, docID}) {
+
+    const [currIndex, setCurrIndex] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [nameInitials, setNameInitials] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const [gender, setGender] = useState('Male');
+    const [birthday, setBirthday] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [designation, setDesignation] = useState('');
+    const [type, setType] = useState('Full Time');
+    const [joinedDate, setJoinedDate] = useState('');
+    const [experience, setExperience] = useState(1);
+    const [salary, setSalary] = useState('');
+    const [notes, setNotes] = useState('');
+
+    useEffect(() => {
+        // Get employee details using docID
+        let getEmpDetails = baseUrl + "/" + String(docID); 
+
+        fetch(getEmpDetails)
+        .then(response => response.json())
+        .then(data => {
+            
+            // Converts date into required format yyyy-mm-dd
+            const birthday = parseDate(data["birthday"]);
+            const joinedDate = parseDate(data["joinedDate"]);
+
+            setCurrIndex(data["empID"]);
+            setFullName(data["fullName"]);
+            setNameInitials(data["nameInitials"]);
+            setDisplayName(data["displayName"]);
+            setGender(data["gender"]);
+            setBirthday(birthday);
+            setEmail(data["email"]);
+            setPhone(data["phone"]);
+            setDesignation(data["designation"]);
+            setType(data["type"]);
+            setJoinedDate(joinedDate);
+            setExperience(data["experience"]);
+            setSalary(data["salary"]);
+            setNotes(data["notes"]);
+            });
+    }, [])
 
     // Converts date into required format yyyy-mm-dd
     const parseDate = (ISODate) => {
@@ -28,32 +72,14 @@ function AddPeople({setModal, currIndex, baseUrl}) {
 
         return fullDay;
     }
-
-    const defaultDay = parseDate(new Date());
-
-    const [fullName, setFullName] = useState('');
-    const [nameInitials, setNameInitials] = useState('');
-    const [displayName, setDisplayName] = useState('');
-    const [gender, setGender] = useState('Male');
-    const [birthday, setBirthday] = useState(defaultDay);
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [designation, setDesignation] = useState('');
-    const [type, setType] = useState('Full Time');
-    const [joinedDate, setJoinedDate] = useState(defaultDay);
-    const [experience, setExperience] = useState(1);
-    const [salary, setSalary] = useState('');
-    const [notes, setNotes] = useState('');
-
+    
 
     const closeModal = () => {
         setModal(false);
         console.log("Modal will be closed");
     }
 
-
-
-    const addNewEmployee = (e) => {
+    const editEmployee = (e) => {
         e.preventDefault();
 
         const employee = { 
@@ -74,7 +100,7 @@ function AddPeople({setModal, currIndex, baseUrl}) {
         };
 
         console.log(employee);
-        const apiCall = baseUrl + "/add";
+        const apiCall = baseUrl + "/update/" + docID;
 
         fetch(apiCall, {
             method: 'POST',
@@ -82,19 +108,18 @@ function AddPeople({setModal, currIndex, baseUrl}) {
             body: JSON.stringify(employee)
         })
         .then(() => {
-            console.log("New Employee Added");
+            console.log("Employee Updated");
             closeModal();
         })
 
     }
-
   return (
-    <div className='modalContainer'>
+        <div className='modalContainer'>
         <div className="modal">
             <div className="topBar" onClick={closeModal}>
-                <h2>Add People</h2>
+                <h2>Edit People</h2>
                 <div className="closeBtn">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.85 10.44C11.9446 10.5339 11.9979 10.6617 11.9979 10.795C11.9979 10.9283 11.9446 11.0561 11.85 11.15L11.15 11.85C11.0561 11.9447 10.9283 11.9979 10.795 11.9979C10.6617 11.9979 10.5339 11.9447 10.44 11.85L5.99997 7.41001L1.55997 11.85C1.46609 11.9447 1.33829 11.9979 1.20497 11.9979C1.07166 11.9979 0.943858 11.9447 0.849974 11.85L0.149974 11.15C0.055318 11.0561 0.0020752 10.9283 0.0020752 10.795C0.0020752 10.6617 0.055318 10.5339 0.149974 10.44L4.58997 6L0.149974 1.56C0.055318 1.46612 0.0020752 1.33832 0.0020752 1.205C0.0020752 1.07169 0.055318 0.943888 0.149974 0.850005L0.849974 0.150005C0.943858 0.0553486 1.07166 0.00210571 1.20497 0.00210571C1.33829 0.00210571 1.46609 0.0553486 1.55997 0.150005L5.99997 4.59L10.44 0.150005C10.5339 0.0553486 10.6617 0.00210571 10.795 0.00210571C10.9283 0.00210571 11.0561 0.0553486 11.15 0.150005L11.85 0.850005C11.9446 0.943888 11.9979 1.07169 11.9979 1.205C11.9979 1.33832 11.9446 1.46612 11.85 1.56L7.40997 6L11.85 10.44Z" fill="#212121"/>
                     </svg>
 
@@ -102,7 +127,7 @@ function AddPeople({setModal, currIndex, baseUrl}) {
             </div>
             <hr className='separator' />
 
-            <form onSubmit={addNewEmployee} className='form'>
+            <form onSubmit={editEmployee} className='form'>
                 <div className="inputContainer">
                     <div className="row span">
                         <label htmlFor="fullName" className='formLabel'>Full Name*</label>
@@ -198,7 +223,7 @@ function AddPeople({setModal, currIndex, baseUrl}) {
                 </div>
                 <div className="btnContainer">
                     <button onClick={closeModal}>Cancel</button>
-                    <input type="submit" value="Add People" />
+                    <input type="submit" value="Edit Person" />
                 </div>
             </form>
 
@@ -207,4 +232,4 @@ function AddPeople({setModal, currIndex, baseUrl}) {
   )
 }
 
-export default AddPeople
+export default EditPeople

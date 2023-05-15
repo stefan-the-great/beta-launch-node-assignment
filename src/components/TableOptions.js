@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from "react-select"
 
-function TableOptions({setModal}) {
+function TableOptions({setModal, setFilter}) {
     const options = [
         {value: "All", label: "All"},
         {value: "Full Time", label: "Full Time"},
@@ -16,17 +16,14 @@ function TableOptions({setModal}) {
 
     const handleChange = (selectedOption) => {
         console.log("Handle Change: ", selectedOption);
-        // Here the value selected by this would trigger an API call
-        // ! CODE THAT BIT
+        setFilter(selectedOption["value"]);
     }
 
     const openModal = () => {
         setModal(true);
+
+
         console.log("Modal will be opened");
-        // This would open up a modal that adds people
-        // ? Way to do it is to have a useState that defaults to false, and will be true when this is clicked
-        // ? Opening the modal
-        // ?
     }
   return (
     <div className='tableOptions'>
