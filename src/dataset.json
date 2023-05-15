@@ -1,0 +1,77 @@
+[{
+        name: "Corey Curtis",
+        id: 1,
+        designation: "Senior Developer",
+        type: "Full Time",
+        experience: 2
+    },
+    {
+        name: "Alfonso Stanton",
+        id: 2,
+        designation: "Senior Front-End Developer",
+        type: "Part Time",
+        experience: 3
+    },
+    {
+        name: "Justin Aminoff",
+        id: 3,
+        designation: "Senior Developer",
+        type: "Contract Basis",
+        experience: 2
+    },
+
+    {
+        name: "Leo Geidt",
+        id: 4,
+        designation: "User Experience Designer",
+        type: "Other",
+        experience: 1
+    },
+
+    {
+        name: "Jaydon Workman",
+        id: 5,
+        designation: "Senior Developer",
+        type: "Part Time",
+        experience: 3
+    },
+
+    {
+        name: "Buben Levin",
+        id: 6,
+        designation: "Senior Developer",
+        type: "Contract Basis",
+        experience: 3
+    }, {
+        name: "Omar Passaquindici Arcand",
+        id: 7,
+        designation: "Senior Developer",
+        type: "Full Time",
+        experience: 2
+    },
+    {
+        name: "Phillip Mango",
+        id: 8,
+        designation: "Senior Developer",
+        type: "Contract Basis",
+        experience: 5
+    }, {
+        name: "Martin Workman",
+        id: 9,
+        designation: "Sales Officer",
+        type: "Full Time",
+        experience: 2
+    }, {
+        name: "Ruben Dokidis",
+        id: 10,
+        designation: "Senior Developer",
+        type: "Full Time",
+        experience: 6
+    }, {
+        name: "Ruben Dokidis",
+        id: 11,
+        designation: "Guest Admin",
+        type: "Part Time",
+        experience: 9
+    }
+]

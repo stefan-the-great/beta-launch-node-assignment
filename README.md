@@ -7,3 +7,4 @@ Technology used
 
 External react libraries used
 - react-select
+- primereact
