@@ -8,7 +8,7 @@ import EditPeople from './components/EditPeople';
 import RowButtons from './components/RowButtons';
 
 function App() {
-    const BASE_URL = "http://localhost:5000/employees";
+    const BASE_URL = "https://employee-managemnet-backend-80v0.onrender.com/employees";
 
   const [openAddPeopleModal, setAddModal] = useState(false);
   const [openEditPeopleModal, setEditModal] = useState(false);
