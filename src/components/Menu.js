@@ -3,7 +3,7 @@ import React from 'react'
 function Menu() {
   return (
     <div className='menu'>
-        <h1>People</h1>
+        <h1>Employee Management System</h1>
     </div>
   )
 }
